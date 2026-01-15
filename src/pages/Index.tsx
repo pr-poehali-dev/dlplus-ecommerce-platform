@@ -11,72 +11,7 @@ import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { toast } from 'sonner';
 
-const INITIAL_PRODUCTS: Product[] = [
-  {
-    id: 1,
-    name: 'Смартфон Samsung Galaxy S24 Ultra 256GB',
-    price: 89990,
-    oldPrice: 109990,
-    image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400',
-    rating: 4.8,
-    reviews: 1247,
-    seller: 'TechStore',
-    sellerRating: 4.9,
-  },
-  {
-    id: 2,
-    name: 'Наушники Apple AirPods Pro 2',
-    price: 21990,
-    oldPrice: 24990,
-    image: 'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400',
-    rating: 4.9,
-    reviews: 856,
-    seller: 'AppleShop',
-    sellerRating: 5.0,
-  },
-  {
-    id: 3,
-    name: 'Ноутбук Apple MacBook Air M2 13.6"',
-    price: 129990,
-    image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400',
-    rating: 5.0,
-    reviews: 543,
-    seller: 'TechStore',
-    sellerRating: 4.9,
-  },
-  {
-    id: 4,
-    name: 'Умные часы Apple Watch Series 9',
-    price: 39990,
-    oldPrice: 44990,
-    image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400',
-    rating: 4.7,
-    reviews: 672,
-    seller: 'AppleShop',
-    sellerRating: 5.0,
-  },
-  {
-    id: 5,
-    name: 'Игровая консоль Sony PlayStation 5',
-    price: 54990,
-    image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400',
-    rating: 4.9,
-    reviews: 1832,
-    seller: 'GameWorld',
-    sellerRating: 4.8,
-  },
-  {
-    id: 6,
-    name: 'Планшет Samsung Galaxy Tab S9 FE',
-    price: 34990,
-    oldPrice: 39990,
-    image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400',
-    rating: 4.6,
-    reviews: 421,
-    seller: 'TechStore',
-    sellerRating: 4.9,
-  },
-];
+const INITIAL_PRODUCTS: Product[] = [];
 
 const CATEGORIES = [
   { name: 'Электроника', icon: 'Smartphone' as const, color: 'bg-blue-100 text-blue-600' },
