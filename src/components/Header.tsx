@@ -26,9 +26,11 @@ export default function Header({ onAuthOpen, cartItemsCount, onCartOpen, onSearc
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 gap-4">
           <div className="flex items-center gap-2">
-            <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              DLPlus
-            </div>
+            <img 
+              src="https://cdn.poehali.dev/files/image.jpeg" 
+              alt="DLPlus" 
+              className="h-10 w-auto"
+            />
           </div>
 
           <form onSubmit={handleSearch} className="flex-1 max-w-2xl">
