@@ -38,11 +38,11 @@ export default function Footer() {
             <div className="space-y-3 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <Icon name="Phone" size={16} />
-                <span>8 (800) 555-35-35</span>
+                <span>8 (910) 254-79-94</span>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="Mail" size={16} />
-                <span>support@dlplus.ru</span>
+                <span>dlplus67@yandex.ru</span>
               </div>
               <div className="flex gap-3 mt-4">
                 <a href="#" className="hover:text-primary transition-colors">
