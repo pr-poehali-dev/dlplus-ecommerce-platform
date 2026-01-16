@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard, { Product } from '@/components/ProductCard';
@@ -27,17 +27,43 @@ interface CartItem extends Product {
 }
 
 export default function Index() {
-  const [products, setProducts] = useState<Product[]>(INITIAL_PRODUCTS);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>(INITIAL_PRODUCTS);
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [products, setProducts] = useState<Product[]>(() => {
+    const saved = localStorage.getItem('dlplus_products');
+    return saved ? JSON.parse(saved) : INITIAL_PRODUCTS;
+  });
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(() => {
+    const saved = localStorage.getItem('dlplus_products');
+    return saved ? JSON.parse(saved) : INITIAL_PRODUCTS;
+  });
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const saved = localStorage.getItem('dlplus_cart');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isDeliveryOpen, setIsDeliveryOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isSeller, setIsSeller] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
-  const [deliveryPoint, setDeliveryPoint] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('dlplus_authenticated') === 'true';
+  });
+  const [isSeller, setIsSeller] = useState(() => {
+    return localStorage.getItem('dlplus_is_seller') === 'true';
+  });
+  const [userEmail, setUserEmail] = useState(() => {
+    return localStorage.getItem('dlplus_email') || '';
+  });
+  const [deliveryPoint, setDeliveryPoint] = useState(() => {
+    return localStorage.getItem('dlplus_delivery') || '';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('dlplus_products', JSON.stringify(products));
+    localStorage.setItem('dlplus_cart', JSON.stringify(cartItems));
+    localStorage.setItem('dlplus_authenticated', String(isAuthenticated));
+    localStorage.setItem('dlplus_is_seller', String(isSeller));
+    localStorage.setItem('dlplus_email', userEmail);
+    localStorage.setItem('dlplus_delivery', deliveryPoint);
+  }, [products, cartItems, isAuthenticated, isSeller, userEmail, deliveryPoint]);
 
   const handleSearch = (query: string) => {
     if (!query.trim()) {
